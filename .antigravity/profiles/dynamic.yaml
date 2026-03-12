@@ -1,0 +1,74 @@
+# ============================================================
+# .antigravity/profiles/dynamic.yaml
+# Dynamic Profile — More energetic (still tasteful)
+# Use this for pitch decks, product demos, marketing decks,
+# or any presentation meant to feel alive and exciting.
+# ============================================================
+
+profile_name: dynamic
+description: >
+  A more expressive animation profile. Uses fly-ins alongside fades
+  and wipes, with snappier timing. Still professional — no bouncing
+  or spinning. Ideal for pitch decks, product launches, or keynote-
+  style presentations where energy matters.
+
+# Timing: faster, snappier
+timing:
+  default_duration_ms: 400
+  delay_between_elements_ms: 120
+  start_on: after_previous
+  title_starts_on: after_previous
+  body_starts_on: after_previous
+
+# Element-level overrides: more variety, snappier timings
+elements:
+  title:
+    animation: fly_in_from_left   # Titles arrive with purpose
+    duration_ms: 350
+    delay_ms: 0
+
+  subtitle:
+    animation: fade
+    duration_ms: 350
+    delay_ms: 80
+
+  body_text:
+    animation: wipe_left
+    duration_ms: 300
+    by_paragraph: true
+    delay_between_paragraphs_ms: 100
+
+  image:
+    animation: fly_in_from_bottom  # Images rise into view
+    duration_ms: 500
+    delay_ms: 150
+
+  shape_accent:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 30
+
+  shape_content:
+    animation: wipe_left           # Content boxes wipe in
+    duration_ms: 350
+    delay_ms: 100
+
+  grouped_element:
+    animation: fly_in_from_bottom
+    duration_ms: 450
+    delay_ms: 150
+
+  table:
+    animation: wipe_bottom
+    duration_ms: 450
+    delay_ms: 100
+
+  chart:
+    animation: wipe_bottom
+    duration_ms: 600
+    delay_ms: 150
+
+  icon:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 80

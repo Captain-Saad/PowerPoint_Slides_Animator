@@ -1,0 +1,74 @@
+# ============================================================
+# .antigravity/profiles/subtle.yaml
+# Subtle Profile — Conservative preset
+# Use this for formal presentations, board decks, or when
+# the audience expects animations to barely be noticed.
+# ============================================================
+
+profile_name: subtle
+description: >
+  The most conservative animation profile. Everything fades gently.
+  No wipes, no fly-ins. Ideal for executive, legal, financial, or
+  formal presentations where animations should be nearly invisible
+  but still add a polished, professional feel.
+
+# Timing: slightly slower, more breathing room
+timing:
+  default_duration_ms: 600
+  delay_between_elements_ms: 100
+  start_on: after_previous
+  title_starts_on: after_previous
+  body_starts_on: after_previous
+
+# Element-level overrides: everything fades, nothing wipes or flies
+elements:
+  title:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 0
+
+  subtitle:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 80
+
+  body_text:
+    animation: fade            # Subtle uses fade instead of wipe
+    duration_ms: 400
+    by_paragraph: true
+    delay_between_paragraphs_ms: 80
+
+  image:
+    animation: fade
+    duration_ms: 700
+    delay_ms: 150
+
+  shape_accent:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 0               # No delay — don't draw attention at all
+
+  shape_content:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 100
+
+  grouped_element:
+    animation: fade
+    duration_ms: 600
+    delay_ms: 150
+
+  table:
+    animation: fade
+    duration_ms: 600
+    delay_ms: 100
+
+  chart:
+    animation: fade            # Even charts just fade — no wipe drama
+    duration_ms: 700
+    delay_ms: 150
+
+  icon:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 50

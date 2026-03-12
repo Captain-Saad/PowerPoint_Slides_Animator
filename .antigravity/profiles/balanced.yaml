@@ -1,0 +1,74 @@
+# ============================================================
+# .antigravity/profiles/balanced.yaml
+# Default Profile — Recommended for most presentations
+# Inherits base rules from rules.yaml and applies no overrides.
+# This is the "just right" setting: tasteful, readable, professional.
+# ============================================================
+
+profile_name: balanced
+description: >
+  The default animation profile. Timings are moderate, animations are
+  restrained and purposeful. Suitable for business, educational, and
+  general-purpose presentations. Titles fade, body text wipes, charts
+  grow. Nothing over the top.
+
+# Timing overrides (relative to rules.yaml global timing)
+timing:
+  default_duration_ms: 500
+  delay_between_elements_ms: 150
+  start_on: after_previous
+  title_starts_on: after_previous
+  body_starts_on: after_previous
+
+# Element-level overrides for this profile
+elements:
+  title:
+    animation: fade
+    duration_ms: 400
+    delay_ms: 0
+
+  subtitle:
+    animation: fade
+    duration_ms: 400
+    delay_ms: 100
+
+  body_text:
+    animation: wipe_left
+    duration_ms: 350
+    by_paragraph: true
+    delay_between_paragraphs_ms: 120
+
+  image:
+    animation: fade
+    duration_ms: 600
+    delay_ms: 200
+
+  shape_accent:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 50
+
+  shape_content:
+    animation: fade
+    duration_ms: 400
+    delay_ms: 150
+
+  grouped_element:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 200
+
+  table:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 100
+
+  chart:
+    animation: wipe_bottom
+    duration_ms: 700
+    delay_ms: 200
+
+  icon:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 100

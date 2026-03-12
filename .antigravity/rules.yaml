@@ -1,0 +1,162 @@
+# ============================================================
+# .antigravity/rules.yaml
+# Animation Rulebook — Read by the engine at runtime
+# Edit this file to change animation behavior without touching code.
+# ============================================================
+
+profile: balanced          # Which profile to inherit defaults from
+                           # Options: subtle | balanced | dynamic
+
+# ------------------------------------------------------------
+# GLOBAL TIMING
+# Controls how fast/slow animations play across all slides
+# ------------------------------------------------------------
+timing:
+  default_duration_ms: 500       # Duration of each animation in ms
+  delay_between_elements_ms: 400 # Gap between each element animating in
+  start_on: after_previous       # "click" | "after_previous" | "with_previous"
+  title_starts_on: after_previous
+  body_starts_on: after_previous
+
+# ------------------------------------------------------------
+# ELEMENT RULES
+# Defines which animation to apply to each element type
+# ------------------------------------------------------------
+elements:
+
+  title:
+    animation: fade
+    duration_ms: 400
+    delay_ms: 0
+
+  subtitle:
+    animation: fade
+    duration_ms: 400
+    delay_ms: 100
+
+  body_text:
+    animation: wipe_left
+    duration_ms: 350
+    by_paragraph: true             # Animate each paragraph/bullet separately
+    delay_between_paragraphs_ms: 120
+
+  image:
+    animation: fade
+    duration_ms: 600
+    delay_ms: 200
+
+  shape_accent:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 50
+
+  shape_content:
+    animation: fade
+    duration_ms: 400
+    delay_ms: 150
+
+  grouped_element:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 200
+
+  table:
+    animation: fade
+    duration_ms: 500
+    delay_ms: 100
+
+  chart:
+    animation: wipe_bottom
+    duration_ms: 700
+    delay_ms: 200
+
+  icon:
+    animation: appear
+    duration_ms: 0
+    delay_ms: 100
+
+# ------------------------------------------------------------
+# SLIDE RULES
+# ------------------------------------------------------------
+slides:
+
+  title_slide:
+    skip_animation: false
+    animation_set: [title, subtitle]
+    override_timing:
+      delay_between_elements_ms: 200
+
+  content_slide:
+    skip_animation: false
+    animation_set: [title, body_text, image, shape_content]
+
+  section_header:
+    skip_animation: false
+    animation_set: [title]
+    override_timing:
+      default_duration_ms: 600
+
+  blank_slide:
+    skip_animation: true
+
+  image_only:
+    animation_set: [image]
+    override_timing:
+      default_duration_ms: 800
+
+# ------------------------------------------------------------
+# ANIMATION CAPS — Anti-chaos rules
+# ------------------------------------------------------------
+caps:
+  max_animations_per_slide: 100
+  # This cap applies ONLY to non-text shapes (images, charts, tables,
+  # grouped elements, accents). Text shapes and their paragraph-level
+  # entries are NEVER counted against this cap — they are controlled
+  # by max_animations_per_slide instead.
+  max_animated_shapes_per_slide: 20
+  skip_if_too_many_elements: 50
+  no_animation_on_last_slide: false
+
+# ------------------------------------------------------------
+# FORBIDDEN ANIMATIONS
+# ------------------------------------------------------------
+forbidden:
+  - bounce
+  - spin
+  - zoom_in_crazy
+  - boomerang
+  - swivel
+  - pinwheel
+  - credits_roll
+  - fly_in_from_top
+  - typewriter
+
+# ------------------------------------------------------------
+# ALLOWED ANIMATIONS
+# ------------------------------------------------------------
+allowed:
+  - fade
+  - appear
+  - wipe_left
+  - wipe_right
+  - wipe_bottom
+  - fly_in_from_left
+  - fly_in_from_bottom
+
+# ------------------------------------------------------------
+# FIRST SLIDE OVERRIDE
+# ------------------------------------------------------------
+first_slide:
+  force_animation: fade
+  duration_ms: 600
+  delay_between_elements_ms: 250
+
+# ------------------------------------------------------------
+# OUTPUT BEHAVIOR
+# ------------------------------------------------------------
+output:
+  suffix: _animated
+  overwrite_if_exists: false
+  preserve_notes: true
+  preserve_hyperlinks: true
+  preserve_masters: true

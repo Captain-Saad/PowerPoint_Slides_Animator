@@ -1,0 +1,17 @@
+# PPTX Animation Engine — Dependencies
+#
+# Python 3.9+ required.
+# Install with: pip install -r requirements.txt
+
+# Core: PowerPoint manipulation
+python-pptx>=0.6.21
+
+# Core: Low-level XML manipulation (lxml is bundled with python-pptx
+# but listed explicitly for clarity and to ensure a compatible version)
+lxml>=4.9.0
+
+# Core: YAML config file parsing
+pyyaml>=6.0
+
+# Development / Testing (not required for production use)
+pytest>=7.0

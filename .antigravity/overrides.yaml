@@ -1,0 +1,46 @@
+# ============================================================
+# .antigravity/overrides.yaml
+# Per-Slide Manual Overrides — Optional
+# Use this to hand-tune specific slides without changing global rules.
+# This file has the HIGHEST priority in the rules evaluation order.
+# ============================================================
+#
+# Format:
+#   slides:
+#     <slide_number>:          # 1-indexed slide number
+#       skip: true             # Skip animation for this slide entirely
+#       animation_set: [...]   # Override which element types animate
+#       timing:
+#         default_duration_ms: ...
+#         delay_between_elements_ms: ...
+#       elements:
+#         <element_type>:
+#           animation: ...
+#           duration_ms: ...
+#           delay_ms: ...
+#
+# Examples (uncomment to use):
+#
+# slides:
+#   1:
+#     # First slide: customise the opener timing
+#     timing:
+#       delay_between_elements_ms: 300
+#
+#   5:
+#     # Slide 5 is too complex — skip it
+#     skip: true
+#
+#   8:
+#     # Slide 8: override chart animation only
+#     elements:
+#       chart:
+#         animation: fade
+#         duration_ms: 500
+#
+#   12:
+#     # Final slide: static, no animations
+#     skip: true
+
+# Leave this empty if you have no per-slide overrides.
+slides: {}
